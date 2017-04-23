@@ -47,6 +47,7 @@ namespace ConsoleApp2
         [CompilerGenerated]
         private sealed class StateMachine1 : IAsyncStateMachine
         {
+
             public int state;
 
             public AsyncVoidMethodBuilder asyncBuilder;
