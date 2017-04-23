@@ -155,7 +155,7 @@ namespace ConsoleApp2
                         {
                             this.f1__state = 0;
                             this.fu__1 = taskAwaiter;
-                            Loader.StateMachine2 FooGetResultd__ = this;
+                            StateMachine2 FooGetResultd__ = this;
                             this.ft__builder.AwaitUnsafeOnCompleted<TaskAwaiter<int>, Loader.StateMachine2>(ref taskAwaiter, ref FooGetResultd__);
                             return;
                         }
@@ -192,24 +192,28 @@ namespace ConsoleApp2
         [DebuggerStepThrough, AsyncStateMachine(typeof(Loader.StateMachine1))]
         public void Heller()
         {
-            Loader.StateMachine1 Hellerd__ = new Loader.StateMachine1();
-            Hellerd__.likeThis = this;
-            Hellerd__.asyncBuilder = AsyncVoidMethodBuilder.Create();
-            Hellerd__.state = -1;
-            AsyncVoidMethodBuilder ft__builder = Hellerd__.asyncBuilder;
-            ft__builder.Start<Loader.StateMachine1>(ref Hellerd__);
+            StateMachine1 stateMachine1 = new StateMachine1()
+            {
+                likeThis = this,
+                asyncBuilder = AsyncVoidMethodBuilder.Create(),
+                state = -1
+            };
+            AsyncVoidMethodBuilder asyncVoidBuilder = stateMachine1.asyncBuilder;
+            asyncVoidBuilder.Start(ref stateMachine1);
         }
 
-        [DebuggerStepThrough, AsyncStateMachine(typeof(Loader.StateMachine2))]
+        [DebuggerStepThrough, AsyncStateMachine(typeof(StateMachine2))]
         public Task<int> GetResult()
         {
-            Loader.StateMachine2 FooGetResultd__ = new Loader.StateMachine2();
-            FooGetResultd__.f4__this = this;
-            FooGetResultd__.ft__builder = AsyncTaskMethodBuilder<int>.Create();
-            FooGetResultd__.f1__state = -1;
-            AsyncTaskMethodBuilder<int> ft__builder = FooGetResultd__.ft__builder;
-            ft__builder.Start<Loader.StateMachine2>(ref FooGetResultd__);
-            return FooGetResultd__.ft__builder.Task;
+            StateMachine2 stateMachine2 = new StateMachine2()
+            {
+                f4__this = this,
+                ft__builder = AsyncTaskMethodBuilder<int>.Create(),
+                f1__state = -1
+            };
+            AsyncTaskMethodBuilder<int> ft__builder = stateMachine2.ft__builder;
+            ft__builder.Start(ref stateMachine2);
+            return stateMachine2.ft__builder.Task;
         }
     }
 
