@@ -44,6 +44,19 @@ namespace ConsoleApp2
 
     internal class Loader
     {
+        [/*DebuggerStepThrough,*/ AsyncStateMachine(typeof(StateMachine1))]
+        public void Heller()
+        {
+
+            StateMachine1 stateMachine1 = new StateMachine1()
+            {
+                likeThis = this,
+                asyncBuilder = AsyncVoidMethodBuilder.Create(),
+                state = -1
+            };
+            stateMachine1.asyncBuilder.Start(ref stateMachine1);
+        }
+
         [CompilerGenerated]
         private sealed class StateMachine1 : IAsyncStateMachine
         {
@@ -71,10 +84,10 @@ namespace ConsoleApp2
                         taskAwaiter = this.likeThis.GetResult().GetAwaiter();
                         if (!taskAwaiter.IsCompleted)
                         {
-                            this.state = 0;
-                            this.globalAwaiter = taskAwaiter;
-                            Loader.StateMachine1 Hellerd__ = this;
-                            this.asyncBuilder.AwaitUnsafeOnCompleted<TaskAwaiter<int>, Loader.StateMachine1>(ref taskAwaiter, ref Hellerd__);
+                            state = 0;
+                            globalAwaiter = taskAwaiter;
+                            StateMachine1 stateMachine = this;
+                            asyncBuilder.AwaitUnsafeOnCompleted(ref taskAwaiter, ref stateMachine);
                             return;
                         }
                     }
@@ -189,20 +202,9 @@ namespace ConsoleApp2
             }
         }
 
-        [DebuggerStepThrough, AsyncStateMachine(typeof(Loader.StateMachine1))]
-        public void Heller()
-        {
-            StateMachine1 stateMachine1 = new StateMachine1()
-            {
-                likeThis = this,
-                asyncBuilder = AsyncVoidMethodBuilder.Create(),
-                state = -1
-            };
-            AsyncVoidMethodBuilder asyncVoidBuilder = stateMachine1.asyncBuilder;
-            asyncVoidBuilder.Start(ref stateMachine1);
-        }
 
-        [DebuggerStepThrough, AsyncStateMachine(typeof(StateMachine2))]
+
+        [/*DebuggerStepThrough,*/ AsyncStateMachine(typeof(StateMachine2))]
         public Task<int> GetResult()
         {
             StateMachine2 stateMachine2 = new StateMachine2()
