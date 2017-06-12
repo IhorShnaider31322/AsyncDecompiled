@@ -41,8 +41,6 @@ namespace ConsoleApp2
     //    }
     //}
 	
-
-
     internal class Loader
     {
         [/*DebuggerStepThrough,*/ AsyncStateMachine(typeof(StateMachine1))]
