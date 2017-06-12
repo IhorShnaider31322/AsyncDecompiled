@@ -15,7 +15,6 @@ namespace ConsoleApp2
         {
 
             new Loader().Heller();
-
             Console.ReadLine();
         }
     }
