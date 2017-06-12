@@ -37,7 +37,7 @@ namespace ConsoleApp2
 
     //        Thread.Sleep(3000);
 
-    //        return res; //dev; angother dev edit
+    //        return res; //dev
     //    }
     //}
 	
