@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    class Program
+    clas Program
     {
         static void Main(string[] args)
         {
