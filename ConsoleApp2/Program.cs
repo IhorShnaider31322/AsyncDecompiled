@@ -39,8 +39,6 @@ namespace ConsoleApp2
 
     //        return res; //dev31322
 
-
-
     //    }
     //}
 	
